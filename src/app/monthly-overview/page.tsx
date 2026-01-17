@@ -57,6 +57,7 @@ export default function MonthlyOverviewPage() {
             <button
               onClick={nextMonth}
               className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
+              aria-label="חודש הבא"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -67,6 +68,7 @@ export default function MonthlyOverviewPage() {
             <button
               onClick={prevMonth}
               className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
+              aria-label="חודש קודם"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -157,7 +159,7 @@ export default function MonthlyOverviewPage() {
       </main>
 
       {/* Floating Chat Button */}
-      <button className="fixed bottom-6 left-6 w-12 h-12 bg-emerald-500 text-white rounded-full shadow-lg hover:bg-emerald-600 transition-colors flex items-center justify-center">
+      <button className="fixed bottom-6 left-6 w-12 h-12 bg-emerald-500 text-white rounded-full shadow-lg hover:bg-emerald-600 transition-colors flex items-center justify-center" aria-label="פתח צ'אט">
         <MessageCircle className="w-6 h-6" />
       </button>
     </div>

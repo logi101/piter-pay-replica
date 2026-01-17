@@ -28,6 +28,7 @@ export function Header({ username = "user", onMenuClick }: HeaderProps) {
         <button
           onClick={onMenuClick}
           className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
+          aria-label="פתח תפריט"
         >
           <Menu className="w-5 h-5 text-slate-600" />
         </button>

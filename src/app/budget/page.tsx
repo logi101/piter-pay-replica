@@ -183,10 +183,14 @@ export default function BudgetPage() {
                       <button
                         onClick={() => handleDeleteCategory(category.id)}
                         className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                        aria-label="מחק קטגוריה"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
-                      <button className="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors">
+                      <button
+                        className="p-2 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors"
+                        aria-label="ערוך קטגוריה"
+                      >
                         <Edit2 className="w-4 h-4" />
                       </button>
                     </div>
@@ -205,7 +209,7 @@ export default function BudgetPage() {
       </main>
 
       {/* Floating Chat Button */}
-      <button className="fixed bottom-6 left-6 w-12 h-12 bg-emerald-500 text-white rounded-full shadow-lg hover:bg-emerald-600 transition-colors flex items-center justify-center">
+      <button className="fixed bottom-6 left-6 w-12 h-12 bg-emerald-500 text-white rounded-full shadow-lg hover:bg-emerald-600 transition-colors flex items-center justify-center" aria-label="פתח צ'אט">
         <MessageCircle className="w-6 h-6" />
       </button>
     </div>

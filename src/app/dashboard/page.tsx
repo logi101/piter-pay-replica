@@ -172,7 +172,10 @@ export default function DashboardPage() {
             {/* Input Area */}
             <div className="p-4 border-t border-slate-200 bg-white">
               <div className="flex gap-2 items-center">
-                <button className="p-2 text-slate-400 hover:text-slate-600 transition-colors">
+                <button
+                  className="p-2 text-slate-400 hover:text-slate-600 transition-colors"
+                  aria-label="צרף קובץ"
+                >
                   <Paperclip className="w-5 h-5" />
                 </button>
                 <input
@@ -188,6 +191,7 @@ export default function DashboardPage() {
                   disabled={!inputValue.trim() || isLoading}
                   className="bg-emerald-500 hover:bg-emerald-600"
                   size="icon"
+                  aria-label="שלח הודעה"
                 >
                   <Send className="w-5 h-5" />
                 </Button>
@@ -222,7 +226,10 @@ export default function DashboardPage() {
       </main>
 
       {/* Floating Chat Button */}
-      <button className="fixed bottom-6 left-6 w-12 h-12 bg-emerald-500 text-white rounded-full shadow-lg hover:bg-emerald-600 transition-colors flex items-center justify-center">
+      <button
+        className="fixed bottom-6 left-6 w-12 h-12 bg-emerald-500 text-white rounded-full shadow-lg hover:bg-emerald-600 transition-colors flex items-center justify-center"
+        aria-label="פתח צ'אט"
+      >
         <MessageCircle className="w-6 h-6" />
       </button>
     </div>

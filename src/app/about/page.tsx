@@ -113,22 +113,25 @@ export default function AboutPage() {
           <CardContent className="py-4">
             <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href="#"
+                href="/terms"
                 className="flex items-center gap-2 text-sm text-slate-600 hover:text-emerald-600 transition-colors"
+                title="תנאי שימוש"
               >
                 <ExternalLink className="w-4 h-4" />
                 תנאי שימוש
               </a>
               <a
-                href="#"
+                href="/privacy"
                 className="flex items-center gap-2 text-sm text-slate-600 hover:text-emerald-600 transition-colors"
+                title="מדיניות פרטיות"
               >
                 <ExternalLink className="w-4 h-4" />
                 מדיניות פרטיות
               </a>
               <a
-                href="#"
+                href="/contact"
                 className="flex items-center gap-2 text-sm text-slate-600 hover:text-emerald-600 transition-colors"
+                title="צור קשר"
               >
                 <ExternalLink className="w-4 h-4" />
                 צור קשר
@@ -149,7 +152,10 @@ export default function AboutPage() {
       </main>
 
       {/* Floating Chat Button */}
-      <button className="fixed bottom-6 left-6 w-12 h-12 bg-emerald-500 text-white rounded-full shadow-lg hover:bg-emerald-600 transition-colors flex items-center justify-center">
+      <button
+        className="fixed bottom-6 left-6 w-12 h-12 bg-emerald-500 text-white rounded-full shadow-lg hover:bg-emerald-600 transition-colors flex items-center justify-center"
+        aria-label="פתח צ'אט"
+      >
         <MessageCircle className="w-6 h-6" />
       </button>
     </div>

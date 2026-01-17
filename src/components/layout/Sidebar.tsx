@@ -50,6 +50,7 @@ export function Sidebar({ isOpen, onClose, username = "user@example.com" }: Side
           <button
             onClick={onClose}
             className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
+            aria-label="סגור תפריט"
           >
             <X className="w-5 h-5 text-slate-600" />
           </button>
@@ -70,8 +71,8 @@ export function Sidebar({ isOpen, onClose, username = "user@example.com" }: Side
             return (
               <Link
                 key={item.href}
-                href={item.disabled ? "#" : item.href}
-                onClick={item.disabled ? (e) => e.preventDefault() : onClose}
+                href={item.href}
+                onClick={onClose}
                 className={cn(
                   "flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-right",
                   isActive
@@ -93,7 +94,10 @@ export function Sidebar({ isOpen, onClose, username = "user@example.com" }: Side
             מחובר כ: {username}
           </p>
           <div className="space-y-2">
-            <button className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-lg transition-colors">
+            <button
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-lg transition-colors"
+              aria-label="החלף משתמש"
+            >
               <span>החלף משתמש</span>
               <RefreshCw className="w-4 h-4" />
             </button>

@@ -73,11 +73,12 @@ export default function ProfilePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-700 flex items-center gap-2 justify-end">
+                <label htmlFor="profile-name" className="text-sm font-medium text-slate-700 flex items-center gap-2 justify-end">
                   שם מלא
                   <User className="w-4 h-4" />
                 </label>
                 <Input
+                  id="profile-name"
                   value={profile.name}
                   onChange={(e) => setProfile({ ...profile, name: e.target.value })}
                   disabled={!isEditing}
@@ -86,11 +87,12 @@ export default function ProfilePage() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-700 flex items-center gap-2 justify-end">
+                <label htmlFor="profile-email" className="text-sm font-medium text-slate-700 flex items-center gap-2 justify-end">
                   אימייל
                   <Mail className="w-4 h-4" />
                 </label>
                 <Input
+                  id="profile-email"
                   type="email"
                   value={profile.email}
                   onChange={(e) => setProfile({ ...profile, email: e.target.value })}
@@ -100,11 +102,12 @@ export default function ProfilePage() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-700 flex items-center gap-2 justify-end">
+                <label htmlFor="profile-phone" className="text-sm font-medium text-slate-700 flex items-center gap-2 justify-end">
                   טלפון
                   <Phone className="w-4 h-4" />
                 </label>
                 <Input
+                  id="profile-phone"
                   type="tel"
                   value={profile.phone}
                   onChange={(e) => setProfile({ ...profile, phone: e.target.value })}
@@ -115,11 +118,12 @@ export default function ProfilePage() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-700 flex items-center gap-2 justify-end">
+                <label htmlFor="profile-birthdate" className="text-sm font-medium text-slate-700 flex items-center gap-2 justify-end">
                   תאריך לידה
                   <Calendar className="w-4 h-4" />
                 </label>
                 <Input
+                  id="profile-birthdate"
                   type="date"
                   value={profile.birthDate}
                   onChange={(e) => setProfile({ ...profile, birthDate: e.target.value })}
@@ -129,11 +133,12 @@ export default function ProfilePage() {
               </div>
 
               <div className="space-y-2 md:col-span-2">
-                <label className="text-sm font-medium text-slate-700 flex items-center gap-2 justify-end">
+                <label htmlFor="profile-address" className="text-sm font-medium text-slate-700 flex items-center gap-2 justify-end">
                   כתובת
                   <MapPin className="w-4 h-4" />
                 </label>
                 <Input
+                  id="profile-address"
                   value={profile.address}
                   onChange={(e) => setProfile({ ...profile, address: e.target.value })}
                   disabled={!isEditing}
@@ -161,6 +166,7 @@ export default function ProfilePage() {
                   checked={profile.notifications}
                   onChange={(e) => setProfile({ ...profile, notifications: e.target.checked })}
                   className="sr-only peer"
+                  aria-label="התראות אימייל"
                 />
                 <div className="w-11 h-6 bg-slate-200 peer-focus:ring-2 peer-focus:ring-emerald-300 rounded-full peer peer-checked:bg-emerald-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
               </label>
@@ -180,6 +186,7 @@ export default function ProfilePage() {
                   checked={profile.twoFactor}
                   onChange={(e) => setProfile({ ...profile, twoFactor: e.target.checked })}
                   className="sr-only peer"
+                  aria-label="אימות דו-שלבי"
                 />
                 <div className="w-11 h-6 bg-slate-200 peer-focus:ring-2 peer-focus:ring-emerald-300 rounded-full peer peer-checked:bg-emerald-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-5"></div>
               </label>
@@ -200,7 +207,10 @@ export default function ProfilePage() {
       </main>
 
       {/* Floating Chat Button */}
-      <button className="fixed bottom-6 left-6 w-12 h-12 bg-emerald-500 text-white rounded-full shadow-lg hover:bg-emerald-600 transition-colors flex items-center justify-center">
+      <button
+        className="fixed bottom-6 left-6 w-12 h-12 bg-emerald-500 text-white rounded-full shadow-lg hover:bg-emerald-600 transition-colors flex items-center justify-center"
+        aria-label="פתח צ'אט"
+      >
         <MessageCircle className="w-6 h-6" />
       </button>
     </div>

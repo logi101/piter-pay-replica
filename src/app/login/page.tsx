@@ -29,7 +29,8 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md shadow-2xl border-0">
+      <main>
+        <Card className="w-full max-w-md shadow-2xl border-0">
         <CardContent className="p-8 md:p-10">
           {isSignUp ? (
             // Sign Up Form
@@ -223,6 +224,7 @@ export default function LoginPage() {
           )}
         </CardContent>
       </Card>
+      </main>
     </div>
   );
 }
