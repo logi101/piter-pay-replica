@@ -1,0 +1,47 @@
+{
+  "name": "PiterPay - היועץ התקציבי החכם",
+  "short_name": "PiterPay",
+  "description": "היועץ חכם לניהול ההוצאות שלך",
+  "theme_color": "#10b981",
+  "background_color": "#f8fafc",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "scope": "/",
+  "id": "/",
+  "dir": "rtl",
+  "lang": "he",
+  "categories": ["finance", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "הוצאה חדשה",
+      "short_name": "הוצאה",
+      "description": "הוסף הוצאה חדשה",
+      "url": "/dashboard?action=add-expense",
+      "icons": [{ "src": "/icons/icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "תקציב",
+      "short_name": "תקציב",
+      "description": "צפה בתקציב החודשי",
+      "url": "/budget",
+      "icons": [{ "src": "/icons/icon.svg", "sizes": "any" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

@@ -129,7 +129,17 @@ export default function LoginPage() {
                 <p className="text-slate-500">התחבר כדי להמשיך</p>
               </div>
 
-              <button className="w-full flex items-center justify-center gap-3 bg-white border border-slate-200 rounded-lg px-4 py-3 text-slate-700 hover:bg-slate-50 transition-colors">
+              <button
+                onClick={() => {
+                  setIsLoading(true);
+                  setTimeout(() => {
+                    setIsLoading(false);
+                    router.push("/dashboard");
+                  }, 1000);
+                }}
+                disabled={isLoading}
+                className="w-full flex items-center justify-center gap-3 bg-white border border-slate-200 rounded-lg px-4 py-3 text-slate-700 hover:bg-slate-50 transition-colors disabled:opacity-50"
+              >
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
                   <path
                     fill="#4285F4"

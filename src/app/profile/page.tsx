@@ -7,6 +7,7 @@ import { Sidebar } from "@/components/layout/Sidebar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { PushNotificationSettings } from "@/components/PushNotificationSettings";
 
 export default function ProfilePage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -150,6 +151,9 @@ export default function ProfilePage() {
             <CardTitle className="text-lg">הגדרות חשבון</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
+            {/* Push Notifications */}
+            <PushNotificationSettings />
+
             <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
               <label className="relative inline-flex items-center cursor-pointer">
                 <input
@@ -162,10 +166,10 @@ export default function ProfilePage() {
               </label>
               <div className="flex items-center gap-3 text-right">
                 <div>
-                  <p className="font-medium text-slate-900">התראות</p>
+                  <p className="font-medium text-slate-900">התראות אימייל</p>
                   <p className="text-sm text-slate-500">קבל התראות על פעילות בחשבון</p>
                 </div>
-                <Bell className="w-5 h-5 text-slate-400" />
+                <Mail className="w-5 h-5 text-slate-400" />
               </div>
             </div>
 
