@@ -7,6 +7,8 @@ export interface PiterPayUser {
   auth_user_id: string;
   email: string;
   display_name: string | null;
+  household_id: string | null; // Link to household
+  role: 'admin' | 'user';
   project_id: string;
   created_at: string;
   updated_at: string | null;

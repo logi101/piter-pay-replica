@@ -16,14 +16,18 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
+  const [isNewUser, setIsNewUser] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate login
+    // Simulate login - new users go to setup, returning users to dashboard
     setTimeout(() => {
       setIsLoading(false);
-      router.push("/dashboard");
+      // In real implementation, check if user has household_id
+      // For now, use isNewUser state
+      router.push(isSignUp ? "/setup" : "/dashboard");
     }, 1000);
   };
 

@@ -12,6 +12,25 @@ export type {
   AuthAction,
 } from './user';
 
+// Household types
+export type {
+  Household,
+  HouseholdProfile,
+  HouseholdMember,
+  HouseholdInvitation,
+  HousingType,
+  EmploymentType,
+  HouseholdMemberRole,
+  CreateHouseholdInput,
+  UpdateHouseholdInput,
+  CreateHouseholdProfileInput,
+  UpdateHouseholdProfileInput,
+  HouseholdSetupStep1Data,
+  HouseholdSetupStep2Data,
+  HouseholdSetupStep3Data,
+  HouseholdSetupData,
+} from './household';
+
 // Transaction types
 export type {
   Transaction,

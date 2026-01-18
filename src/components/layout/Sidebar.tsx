@@ -1,6 +1,6 @@
 "use client";
 
-import { X, MessageCircle, Sparkles, LayoutDashboard, Calendar, CheckSquare, Settings, BarChart3, User, Users, BookOpen, Info, LogOut, RefreshCw } from "lucide-react";
+import { X, MessageCircle, Sparkles, LayoutDashboard, Calendar, CheckSquare, Settings, BarChart3, User, Users, BookOpen, Info, LogOut, RefreshCw, Home } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -21,6 +21,7 @@ const menuItems = [
   { href: "/analysis", label: "ניתוח נתונים - לא בשימוש", icon: BarChart3, disabled: true },
   { href: "/profile", label: "פרופיל לקוח", icon: User },
   { href: "/household", label: "ניהול משק בית", icon: Users },
+  { href: "/setup", label: "אשף הגדרת משק בית", icon: Home },
   { href: "/guide", label: "מדריך למשתמש", icon: BookOpen },
   { href: "/about", label: "אודות", icon: Info },
 ];
