@@ -6,7 +6,6 @@ import { Header } from "@/components/layout/Header";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 
 interface GuideSection {
   id: string;
@@ -201,7 +200,7 @@ export default function GuidePage() {
             </p>
             <button className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition-colors">
               <MessageCircle className="w-5 h-5" />
-              פתח צ'אט עם פיטר
+              פתח צ&#39;אט עם פיטר
             </button>
           </CardContent>
         </Card>

@@ -9,13 +9,42 @@ import { createClient, SupabaseClient, User } from '@supabase/supabase-js';
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
-// Create Supabase client with ANON_KEY (restricted access)
-export const supabase: SupabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
 // Check if Supabase is configured
 export const isSupabaseConfigured = (): boolean => {
   return SUPABASE_URL !== '' && SUPABASE_ANON_KEY !== '';
 };
+
+// Create Supabase client with ANON_KEY (restricted access)
+// Uses lazy initialization to prevent build-time errors when env vars are missing
+let _supabase: SupabaseClient | null = null;
+
+function getSupabaseClient(): SupabaseClient {
+  if (!_supabase) {
+    if (!isSupabaseConfigured()) {
+      // Return a mock client for SSG/build time - will fail gracefully at runtime
+      // This prevents build failures when env vars aren't available
+      _supabase = createClient(
+        'https://placeholder.supabase.co',
+        'placeholder-anon-key'
+      );
+    } else {
+      _supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    }
+  }
+  return _supabase;
+}
+
+// Export a proxy that lazily initializes the client
+export const supabase: SupabaseClient = new Proxy({} as SupabaseClient, {
+  get(_target, prop: keyof SupabaseClient) {
+    const client = getSupabaseClient();
+    const value = client[prop];
+    if (typeof value === 'function') {
+      return value.bind(client);
+    }
+    return value;
+  },
+});
 
 // ========================================
 // Secure Authentication Helper

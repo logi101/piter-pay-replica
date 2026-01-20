@@ -276,6 +276,7 @@ export const accountService = {
 
   /**
    * Transfer money between accounts
+   * Uses compensating transaction pattern for atomicity
    */
   async transfer(
     fromAccountId: string,
@@ -290,12 +291,45 @@ export const accountService = {
       throw new Error('Transfer amount must be positive');
     }
 
-    // Update source account
+    // Validate both accounts exist before starting
+    const [sourceAccount, destAccount] = await Promise.all([
+      this.getById(fromAccountId),
+      this.getById(toAccountId),
+    ]);
+
+    if (!sourceAccount) {
+      throw new Error('Source account not found');
+    }
+    if (!destAccount) {
+      throw new Error('Destination account not found');
+    }
+    if (sourceAccount.balance < amount) {
+      throw new Error('Insufficient balance in source account');
+    }
+
+    // Update source account first
     const from = await this.updateBalance(fromAccountId, amount, 'subtract');
 
-    // Update destination account
-    const to = await this.updateBalance(toAccountId, amount, 'add');
-
-    return { from, to };
+    // Update destination account with rollback on failure
+    try {
+      const to = await this.updateBalance(toAccountId, amount, 'add');
+      return { from, to };
+    } catch (error) {
+      // Compensating transaction: rollback source account
+      console.error('[AccountService] Transfer failed, rolling back source account');
+      try {
+        await this.updateBalance(fromAccountId, amount, 'add');
+      } catch (rollbackError) {
+        // Critical: Manual intervention required
+        console.error('[AccountService] CRITICAL: Rollback failed! Manual intervention required.', {
+          fromAccountId,
+          toAccountId,
+          amount,
+          originalError: error,
+          rollbackError,
+        });
+      }
+      throw error;
+    }
   },
 };

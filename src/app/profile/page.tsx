@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { User, Mail, Phone, Calendar, MapPin, Bell, Shield, MessageCircle } from "lucide-react";
+import { User, Mail, Phone, Calendar, MapPin, Shield, MessageCircle } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Button } from "@/components/ui/button";

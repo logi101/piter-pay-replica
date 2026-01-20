@@ -56,7 +56,7 @@ export default function TinkerbellPage() {
                     href="/dashboard"
                     className="inline-flex items-center gap-2 bg-emerald-500 text-white px-6 py-3 rounded-lg hover:bg-emerald-600 transition-colors"
                   >
-                    חזרה לצ'אט עם פיטר
+                    חזרה לצ&#39;אט עם פיטר
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
