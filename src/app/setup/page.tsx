@@ -154,7 +154,7 @@ export default function HouseholdSetupPage() {
         {/* Progress Steps */}
         <div className="flex justify-between mb-8 relative">
           <div className="absolute top-5 left-0 right-0 h-0.5 bg-slate-200 -z-10" />
-          {steps.map((step, index) => {
+          {steps.map((step) => {
             const StepIcon = step.icon;
             const isCompleted = currentStep > step.id;
             const isCurrent = currentStep === step.id;
@@ -402,7 +402,7 @@ export default function HouseholdSetupPage() {
                 <div className="space-y-2">
                   <label className="flex items-center gap-2 text-sm font-medium text-slate-700">
                     <Wallet className="w-4 h-4" />
-                    סה"כ הכנסה חודשית (כולל בן/בת זוג)
+                    סה&quot;כ הכנסה חודשית (כולל בן/בת זוג)
                   </label>
                   <Input
                     type="number"
@@ -476,7 +476,7 @@ export default function HouseholdSetupPage() {
                     מעולה! סיימנו להגדיר את משק הבית
                   </h2>
                   <p className="text-slate-500">
-                    הפרופיל של "{step1Data.householdName}" מוכן
+                    הפרופיל של &quot;{step1Data.householdName}&quot; מוכן
                   </p>
                 </div>
 

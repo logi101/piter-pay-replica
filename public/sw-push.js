@@ -1,5 +1,5 @@
 // Push notification service worker
-self.addEventListener('install', (event) => {
+self.addEventListener('install', () => {
   console.log('[SW-Push] Installing service worker...');
   self.skipWaiting();
 });
@@ -38,7 +38,7 @@ self.addEventListener('push', (event) => {
     console.log('[SW-Push] Error parsing push data:', e);
     try {
       if (event.data) data.body = event.data.text();
-    } catch (_) {
+    } catch {
       // ignore
     }
   }

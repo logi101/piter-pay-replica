@@ -194,7 +194,7 @@ export default function TasksPage() {
               <div className="text-center py-12 text-slate-500">
                 <AlertCircle className="w-12 h-12 mx-auto mb-4 text-slate-300" />
                 <p>אין משימות להצגה</p>
-                <p className="text-sm mt-1">לחץ על "משימה חדשה" כדי להוסיף</p>
+                <p className="text-sm mt-1">לחץ על &quot;משימה חדשה&quot; כדי להוסיף</p>
               </div>
             ) : (
               <div className="divide-y divide-slate-200">

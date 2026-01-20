@@ -40,7 +40,7 @@ type TabType = "chat" | "dashboard" | "details";
 
 export default function DashboardPage() {
   const { user } = useAuth();
-  const { transactionSummary, budgetSummary, recentTransactions, isLoading: isDataLoading } = useDashboardData(user?.id);
+  const { transactionSummary, budgetSummary, recentTransactions } = useDashboardData(user?.id);
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<TabType>("chat");
@@ -324,7 +324,7 @@ ${transactionSummary.net < 0 ? "שימו לב! ההוצאות עולות על ה
                 {(!budgetSummary?.budgets || budgetSummary.budgets.length === 0) && (
                   <div className="text-center py-8 text-slate-500">
                     <p>אין תקציבים מוגדרים</p>
-                    <p className="text-sm mt-1">לחץ על "הגדרות תקציב" כדי להוסיף</p>
+                    <p className="text-sm mt-1">לחץ על &quot;הגדרות תקציב&quot; כדי להוסיף</p>
                   </div>
                 )}
               </CardContent>
@@ -386,7 +386,7 @@ ${transactionSummary.net < 0 ? "שימו לב! ההוצאות עולות על ה
               ) : (
                 <div className="text-center py-8 text-slate-500">
                   <p>אין פעולות אחרונות</p>
-                  <p className="text-sm mt-1">התחל להזין הוצאות דרך הצ'אט עם פיטר</p>
+                  <p className="text-sm mt-1">התחל להזין הוצאות דרך הצ&#39;אט עם פיטר</p>
                 </div>
               )}
             </CardContent>

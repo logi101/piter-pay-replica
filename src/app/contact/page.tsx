@@ -88,7 +88,7 @@ export default function ContactPage() {
 
               <div className="pt-4 border-t border-slate-100">
                 <p className="text-sm text-slate-500">
-                  שעות פעילות: א'-ה' 09:00-18:00
+                  שעות פעילות: א&#39;-ה&#39; 09:00-18:00
                 </p>
               </div>
             </CardContent>
